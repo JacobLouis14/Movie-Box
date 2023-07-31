@@ -18,5 +18,7 @@
 .avatar{
     position: fixed;
     right: 60px;
-    width: 30px;
+    width: 40px;
+    top: 40px;
+    border-radius: 10px;
 }

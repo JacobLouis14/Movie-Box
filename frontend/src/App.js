@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { action, comedy, documentries, horror, originals, romantic } from './urls'
 import NavBar from './Components/NavBar/NavBar';
 import Banner from './Components/Banner/Banner';
 import RowPosts from './Components/RowPosts/RowPosts';
@@ -10,7 +11,12 @@ function App() {
     <div >
       <NavBar/>
       <Banner/>
-      <RowPosts/>
+      <RowPosts url={originals} title="Netflix Originals"/>
+      <RowPosts url={action} title="Action" isSmall />
+      <RowPosts url={comedy} title="Comedy" isSmall />
+      <RowPosts url={horror} title="Horror" isSmall />
+      <RowPosts url={romantic} title="Romantic" isSmall />
+      <RowPosts url={documentries} title="Documentries" isSmall />
     </div>
   );
 }
