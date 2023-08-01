@@ -9,15 +9,68 @@
     padding: 20px;
     overflow-x: scroll;
     overflow-y: hidden;
+
 }
 .posters::-webkit-scrollbar{
     display: none;
 }
+.image-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.image-wrapper:hover .poster-details{
+    display:flex;
+    flex-direction: column;
+}
 .poster{
     max-height: 300px;
     margin-right: 10px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+.poster:hover{
+    transform: scale(1.1);
 }
 .smallPoster{
     max-height: 180px;
     margin-right: 10px;
+    cursor: pointer;
+    transition: 0.8s;
+
+}
+.smallPoster:hover{
+    transform: scale(1.2);
+}
+.trailer{
+    margin-right: 2rem;
+    border-top: 1px solid red;
+}
+.poster-details{
+    background-color: hsl(0, 0%, 7% , 0.5 );
+    display: none;
+}
+.poster-title{
+    color: white;
+    top: 1rem;
+    font-size:medium;
+    padding-top: 20px;
+}
+.trailer-btn{
+    width: 50%;
+    height: 35px;
+    border: none;
+    background-color: rgb(111, 23, 23);
+    color: white;
+    font-size: larger;
+    font-weight: 400;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+.trailer-btn:hover{
+    cursor: pointer;
+    background-color: rgb(111, 23, 23,0.5);
+    color: white;
+}
+.avg-vote{
+    justify-content: end;
 }
