@@ -22,3 +22,26 @@
     top: 40px;
     border-radius: 10px;
 }
+.avatar-btn{
+    position: fixed;
+    right: 60px;
+    width: 80px;
+    height: 40px;
+    top: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    border-bottom: solid 1px red;
+    background-color: #111;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+}
+.avatar-btn:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+.btn-link{
+    text-decoration: none;
+}
