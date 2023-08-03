@@ -1,22 +1,21 @@
 import React from 'react';
 import './App.css';
-import { action, comedy, documentries, horror, originals, romantic } from './urls'
-import NavBar from './Components/NavBar/NavBar';
-import Banner from './Components/Banner/Banner';
-import RowPosts from './Components/RowPosts/RowPosts';
+import Signup from './Pages/Signup/Signup';
+import HomePage from './Pages/Home/HomePage';
+import {BrowserRouter as Router ,Route,Routes} from 'react-router-dom'
+
+
 
 
 function App() {
   return (
     <div >
-      <NavBar/>
-      <Banner/>
-      <RowPosts url={originals} title="Netflix Originals"/>
-      <RowPosts url={action} title="Action" isSmall />
-      <RowPosts url={comedy} title="Comedy" isSmall />
-      <RowPosts url={horror} title="Horror" isSmall />
-      <RowPosts url={romantic} title="Romantic" isSmall />
-      <RowPosts url={documentries} title="Documentries" isSmall />
+      <Router>
+        <Routes>
+      <Route path='/' element={<HomePage/>} ></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
+      </Routes>
+      </Router>
     </div>
   );
 }

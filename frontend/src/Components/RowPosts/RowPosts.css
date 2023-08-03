@@ -27,6 +27,7 @@
     margin-right: 10px;
     cursor: pointer;
     transition: 0.8s;
+    margin-bottom: 30px;
 }
 .poster:hover{
     transform: scale(1.1);
@@ -48,12 +49,13 @@
 .poster-details{
     background-color: hsl(0, 0%, 7% , 0.5 );
     display: none;
+    margin-top: 40px;
 }
 .poster-title{
     color: white;
     top: 1rem;
     font-size:medium;
-    padding-top: 20px;
+    max-width: 250px;
 }
 .trailer-btn{
     width: 50%;
@@ -72,5 +74,7 @@
     color: white;
 }
 .avg-vote{
-    justify-content: end;
+    align-self: flex-end;
+    position: relative;
+    bottom: 22px;
 }

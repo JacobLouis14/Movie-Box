@@ -60,6 +60,7 @@ function RowPosts(props) {
     setMouseEnterData(data)
   }
 
+  let star = mouseEnterData? '⭐' : ''
 
 
   return (
@@ -75,7 +76,7 @@ function RowPosts(props) {
 
             <div className='poster-details'> 
              <h3 className='poster-title'>{(mouseEnterData && mouseEnterData.original_name)|| (mouseEnterData && props.isSmall && mouseEnterData.title)}{console.log(mouseEnterData)}</h3>
-             <h4 className='avg-vote'>⭐{mouseEnterData ? mouseEnterData.vote_average: ''}</h4>
+             <h4 className='avg-vote'>{mouseEnterData ? mouseEnterData.vote_average: ''}{star}</h4>
              <button onClick={()=>{clickHandle(obj.id);setClose(false)}} className='trailer-btn'>Trailer</button>
             </div>
           </div>
