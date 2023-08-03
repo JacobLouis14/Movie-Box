@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AuthSignup.css'
 
 function AuthSignup() {
+
+  const [userName,setUserName] = useState('');
+  const [userEmail,setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const [notValidName,setNotValidName] = useState('');
+  const [notValidEmail,setNotValidEmail] = useState('');
+  const [notValidPassword,setNotValidPassword] = useState('');
+
+  let submitHandle =()=>{
+    console.log(userName)
+  }
+
+  /* validation */
+  let validation =()=>{
+    if(!userName) {setNotValidName('Enter valid data ❗'); return}
+    if(!userEmail) {setNotValidEmail('Enter valid data ❗'); return}
+    if(!userPassword) {setNotValidPassword('Enter valid data ❗'); return}
+    submitHandle()
+  }
+
   return (
     <div className='back'>
         <div className="shell">
@@ -15,15 +35,21 @@ function AuthSignup() {
                         className='in-div'
                         type='text'
                         name='name'
-                        placeholder='Name'
+                        placeholder={notValidName? notValidName:'Name'}
+                        value={userName}
+                        onChange={(e)=>{setUserName(e.target.value);setNotValidName('')}}
+                        required
                     />
                     </div>
                     <div className="div"> 
                     <input
                         className='in-div'
                         type='text'
-                        name='name'
-                        placeholder='Email'
+                        name='email'
+                        placeholder={notValidEmail? notValidEmail:'Email'}
+                        value={userEmail}
+                        onChange={(e)=>{setUserEmail(e.target.value);setNotValidEmail('')}}
+                        required
                     />
                     </div>
                     <div className="div"> 
@@ -31,11 +57,14 @@ function AuthSignup() {
                         className='in-div'
                         type='password'
                         name='name'
-                        placeholder='Password'
+                        placeholder={notValidPassword? notValidPassword:'Password'}
+                        value={userPassword}
+                        onChange={(e)=>{setUserPassword(e.target.value);setNotValidPassword('')}}
+                        required
                     />
                     </div>    
                 </form>
-                <button className='signup-btn'>SignUp</button>
+                <button className='signup-btn' onClick={()=>validation()}>SignUp</button>
             </div>
         </div>
     </div>
