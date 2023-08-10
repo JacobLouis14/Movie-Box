@@ -75,7 +75,7 @@ function RowPosts(props) {
             src={`${IMAGE_URL+obj.backdrop_path}`} alt='poster' />
 
             <div className='poster-details'> 
-             <h3 className='poster-title'>{(mouseEnterData && mouseEnterData.original_name)|| (mouseEnterData && props.isSmall && mouseEnterData.title)}{console.log(mouseEnterData)}</h3>
+             <h3 className='poster-title'>{(mouseEnterData && mouseEnterData.original_name)|| (mouseEnterData && props.isSmall && mouseEnterData.title)}</h3>
              <h4 className='avg-vote'>{mouseEnterData ? mouseEnterData.vote_average: ''}{star}</h4>
              <button onClick={()=>{clickHandle(obj.id);setClose(false)}} className='trailer-btn'>Trailer</button>
             </div>

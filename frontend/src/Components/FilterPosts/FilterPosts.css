@@ -1,0 +1,28 @@
+.filter-posters{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20rem;
+    margin-right: 20px;
+    align-self: center;
+    margin-left: 20px;
+}
+.filter-image-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    /* border: 1px solid wheat; */
+    margin-left: 40px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+.filter-image-wrapper:hover{
+    transform: scale(1.2);
+}
+.filter-poster{
+    height: 180px;
+}
+.poster-title{
+    /* border: 1px solid red; */
+    margin-top: 15px;
+}

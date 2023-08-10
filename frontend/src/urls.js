@@ -6,3 +6,5 @@ export const comedy = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres
 export const horror = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=27`
 export const romantic = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=10749`
 export const documentries = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=99`
+
+export const languages = `${BASE_URL}/configuration/languages?api_key=${API_KEY}`

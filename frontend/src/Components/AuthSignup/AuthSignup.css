@@ -3,7 +3,7 @@
     height: 750px;
     display: flex;
     flex-wrap: wrap;
-    background-size: cover;
+    background-size:auto;
   } 
 .shell{
     position: absolute;
@@ -16,7 +16,7 @@
     justify-content: center;
     height: 500px;
     width: 400px;
-    background-color: hsl(0, 0%, 7%);
+    background-color: black;
     border-radius: 10px;
     border-bottom: solid 2px red;
 }
@@ -25,7 +25,6 @@
   padding-top: 10px;
   font-size: xx-large;
   color: rgb(183, 181, 181);
-  font-style: oblique;
 }
 .form{
     display: inline-block;

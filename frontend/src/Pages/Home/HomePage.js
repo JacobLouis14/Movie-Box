@@ -7,7 +7,7 @@ import { action, comedy, documentries, horror, originals, romantic } from '../..
 function HomePage() {
   return (
     <div>
-    <NavBar/>
+    <NavBar />
     <Banner/>
     <RowPosts url={originals} title="Netflix Originals"/>
     <RowPosts url={action} title="Action" isSmall />
