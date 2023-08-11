@@ -43,8 +43,6 @@ function NavBar() {
               <select onChange={selectHandler}>
                 <option value=''>Select Language</option>
                 <option value='en-US'>English</option>
-                <option value='ml-IN'>Malayalam</option>
-                <option value='Hindi'>Hindi</option>
               </select>
             </div>
             {user?<img className='avatar' src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png" alt="" /> :<Link className='btn-link' to='/signup'><button className='avatar-btn'>Signup</button></Link>}

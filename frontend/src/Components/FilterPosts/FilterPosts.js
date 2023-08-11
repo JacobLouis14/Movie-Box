@@ -4,6 +4,8 @@ import axios from '../../axios'
 import {BASE_URL, API_KEY, IMAGE_URL} from '../../Constants/constants'
 import './FilterPosts.css'
 
+
+
 function FilterPosts() {
 
     // const location = useLocation()
@@ -13,8 +15,8 @@ function FilterPosts() {
     const [data,setData] = useState([])
     let searchData
     let langData
-    if(searchParams.get('data')){
-      searchData = searchParams.get('data')
+    if(searchParams.get('search')){
+      searchData = searchParams.get('search')
     }else if(searchParams.get('lang')){
       langData = searchParams.get('lang')
     }
@@ -36,7 +38,6 @@ function FilterPosts() {
     const searchDetails = ()=>{
         axios.get(`${BASE_URL}/search/movie?query=${searchData}&api_key=${API_KEY}`).then(response=>{
             setData(response.data.results)
-    
     })} 
     
     //Accesing language data
@@ -50,11 +51,11 @@ function FilterPosts() {
     <div>
         <div className="filter-posters">
             {data.map((obj)=>
-                obj.original_language === 'en' && obj.backdrop_path &&
+                 obj.backdrop_path &&
                 <div className="filter-image-wrapper">
                     <img className='filter-poster' src={IMAGE_URL+obj.backdrop_path} alt='Poster'/>
                     {console.log(obj)}
-                       <h3 className='poster-title'>{obj.original_title}</h3>
+                       <h3 className='poster-title'>{obj.title}</h3>
                 </div> 
                 )}      
         </div>
