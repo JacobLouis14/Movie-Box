@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './AuthSignup.css'
+import axios from 'axios'
 
 function AuthSignup() {
 
@@ -11,7 +12,13 @@ function AuthSignup() {
   const [notValidPassword,setNotValidPassword] = useState('');
 
   let submitHandle =()=>{
-    console.log(userName)
+    const userDetails = {
+      Name: userName,
+      email: userEmail,
+      password: userPassword
+    }
+    axios.post('http://localhost:3001/auth/register',userDetails)
+    .then(response=>console.log(response)).catch(err=>console.log(err))
   }
 
   /* validation */

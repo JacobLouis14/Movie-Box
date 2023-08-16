@@ -45,7 +45,7 @@ function NavBar() {
                 <option value='en-US'>English</option>
               </select>
             </div>
-            {user?<img className='avatar' src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png" alt="" /> :<Link className='btn-link' to='/signup'><button className='avatar-btn'>Signup</button></Link>}
+            {user?<img className='avatar' src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png" alt="" /> :<Link className='btn-link' to='/auth/register'><button className='avatar-btn'>Signup</button></Link>}
         </div>
     </div>
   )
