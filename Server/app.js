@@ -6,9 +6,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 
-const indexRouter = require('./routes/index');
+const authRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const { error } = require('console');
 
 const app = express();
 dotenv.config()
@@ -23,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', authRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
@@ -43,9 +42,8 @@ app.use(function(err, req, res, next) {
 });
 
 /* Mongoose setup */
-const PORT = process.env.PORT || 6001;
-mongoose.connect(process.env.MONGO_URL,{
-}).then(()=>{
+const PORT = process.env.PORT ;
+mongoose.connect(process.env.MONGO_URL,).then(()=>{
   app.listen(PORT, ()=> console.log(`server running on port ${PORT}`))
 }).catch((error)=>console.log(`${error} did not connect`))
 
