@@ -13,7 +13,6 @@
 }
 .container{
     display: grid;
-    justify-content: center;
     height: 500px;
     width: 400px;
     background-color: black;
@@ -21,13 +20,33 @@
     border-bottom: solid 2px red;
 }
 .title{
-  justify-self: center;
-  padding-top: 10px;
+  display: flex;
+  margin-top: 20px;
   font-size: xx-large;
   color: rgb(183, 181, 181);
+  justify-content: center;
+}
+.signup-title{
+    display: flex;
+    border-radius: 8px;
+    width: 12rem;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    cursor: pointer;
+}
+.login-title{
+    display: flex;
+    border-radius: 8px;
+    width: 12rem;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    cursor: pointer;
 }
 .form{
     display: inline-block;
+    text-align: center;
 }
 .div{
     padding-top: 2rem;
@@ -44,16 +63,16 @@
 input{
     padding-left: 10px;
 }
-.signup-btn{
+.submit-btn{
     border: none;
     outline: none;
     cursor: pointer;
     height: 40px;
     width: 100px;
-    justify-self: center;
     border-radius: 10px;
     font-size: medium;
     font-weight: 700;
     background-color: brown;
     color: white;
+    margin-top: 30px;
 }

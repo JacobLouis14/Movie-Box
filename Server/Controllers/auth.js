@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/user.js')
+const jwt = require('jsonwebtoken')
 
 
 /*Regitering User */
@@ -23,10 +24,28 @@ const register = async(req, res)=>{
         });
 
         const savedUser = await newUser.save();
-        res.status(201,res.send(savedUser))
+        res.status(201).json(savedUser)
     } catch (error) {
-        res.status(500,res.send(error.message))
+        res.status(500).json(error.message)
     }
 }
 
-module.exports = register
+/*Login User */
+const login = async(req,res)=>{
+    try {
+        const {email,password} = req.body;
+        const user = await User.findOne({email: email});
+        if(!user) return res.status(400).json({msg: 'User Not Exist'});
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch) return res.status(400).json({msg: 'Invalid Credentials'});
+
+        const token = jwt.sign({id: user.id}, process.env.SECRET_TOKEN);
+        delete user.password;
+        res.status(200).json({token, user})
+    } catch (error) {
+        res.status(500).json(error.message)
+    }
+}
+
+module.exports = {register, login}

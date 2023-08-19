@@ -6,6 +6,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cors = require('cors')
+const bodyParser = require('body-parser');
+
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 
@@ -16,6 +18,7 @@ dotenv.config()
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(bodyParser.json());
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
@@ -44,7 +47,10 @@ app.use(function(err, req, res, next) {
 
 /* Mongoose setup */
 const PORT = process.env.PORT ;
-mongoose.connect(process.env.MONGO_URL,).then(()=>{
+mongoose.connect(process.env.MONGO_URL,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(()=>{
   app.listen(PORT, ()=> console.log(`server running on port ${PORT}`))
 }).catch((error)=>console.log(`${error} did not connect`))
 
