@@ -55,9 +55,9 @@ function AuthSignup() {
       password: loginPassword
     }
     axios.post('http://localhost:3001/auth/login', userLoginDetails)
-    .then(response=>{console.log(response);
-        setUser(response.data)
-        localStorage.setItem("token",response.data.token)
+    .then(response=>{
+        setUser(response.data);
+        localStorage.setItem("token",response.data.token);
         setLoginEmail('');
         setLoginPassword('');
         navigate('/');})

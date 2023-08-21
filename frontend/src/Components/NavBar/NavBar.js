@@ -5,7 +5,7 @@ import { Link, useNavigate} from 'react-router-dom'
 function NavBar(props) {
 
   const navigate = useNavigate()
-  const user = props.user //Accesing User
+  const [user,setUser] = useState('') //Accesing User
   const[search,setSearch] = useState('')
   const[lang,setLang] = useState('')
 
@@ -21,11 +21,22 @@ function NavBar(props) {
     setLang(e.target.value)
   }
 
+  /*Log out Handler */
+  const logOutHandler =()=>{
+    localStorage.removeItem('token')
+    setUser('')
+  }
+
   useEffect(() => {
     if(lang){
       navigate(`/search?lang=${lang}`)
     }
   }, [lang,navigate])
+  
+  /*intializing user */
+  useEffect(() => {
+    setUser(props.user)
+  }, [props])
   
 
   return (
@@ -45,7 +56,17 @@ function NavBar(props) {
                 <option value='en-US'>English</option>
               </select>
             </div>
-            {user?<img className='avatar' src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png" alt="" /> :<Link className='btn-link' to='/auth/register'><button className='avatar-btn'>Signup</button></Link>}
+            {user?
+              <div className='avatar-container'>
+              <img className='avatar' src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png" alt=""/> 
+              <div className='avatar-dropdown'>
+                <div className='avatar-dropdown-content'>
+                  <p>{"Hey "+user.Name}</p>
+                  <h4 onClick={logOutHandler}>Log Out</h4>
+                </div>
+              </div>
+              </div>
+              :<Link className='btn-link' to='/auth/register'><button className='avatar-btn'>Signup</button></Link>}
         </div>
     </div>
   )
