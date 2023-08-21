@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './NavBar.css'
 import { Link, useNavigate} from 'react-router-dom'
 
-function NavBar() {
+function NavBar(props) {
 
   const navigate = useNavigate()
-  const user = null
+  const user = props.user //Accesing User
   const[search,setSearch] = useState('')
   const[lang,setLang] = useState('')
 

@@ -25,12 +25,14 @@ function FilterPosts() {
     useEffect(() => {
       if(searchData)
         searchDetails()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchData])
     
     //For langData
     useEffect(() => {
       if(langData)
       langDetails()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [langData])
     
 
@@ -52,7 +54,7 @@ function FilterPosts() {
         <div className="filter-posters">
             {data.map((obj)=>
                  obj.backdrop_path &&
-                <div className="filter-image-wrapper">
+                <div key={obj.id} className="filter-image-wrapper">
                     <img className='filter-poster' src={IMAGE_URL+obj.backdrop_path} alt='Poster'/>
                     {console.log(obj)}
                        <h3 className='poster-title'>{obj.title}</h3>

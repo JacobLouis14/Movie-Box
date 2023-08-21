@@ -1,13 +1,17 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import NavBar from '../../Components/NavBar/NavBar'
 import Banner from '../../Components/Banner/Banner'
 import RowPosts from '../../Components/RowPosts/RowPosts';
 import { action, comedy, documentries, horror, originals, romantic } from '../../urls'
+import { AppContext } from '../../AppContext';
 
 function HomePage() {
+
+  /*Passing User Value */
+  const {user} = useContext(AppContext)
   return (
     <div>
-    <NavBar />
+    <NavBar user={user} />
     <Banner/>
     <RowPosts url={originals} title="Netflix Originals"/>
     <RowPosts url={action} title="Action" isSmall />

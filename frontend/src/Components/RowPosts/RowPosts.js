@@ -68,7 +68,7 @@ function RowPosts(props) {
         <h2>{props.title}</h2>
         <div className="posters">
           { movie.map((obj)=>
-          <div className="image-wrapper">
+          <div key={obj.id} className="image-wrapper">
             <img onMouseEnter={()=>mouseEnter(obj.id)} 
             onMouseLeave={()=>setMouseEnterData()} 
             className={props.isSmall? 'smallPoster': 'poster'} 

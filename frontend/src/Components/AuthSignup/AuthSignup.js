@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, } from 'react'
 import './AuthSignup.css'
 import axios from 'axios'
+import { AppContext } from '../../AppContext';
+import { useNavigate } from 'react-router-dom';
 
 function AuthSignup() {
+
+  /*Logged user Data */
+  // eslint-disable-next-line no-unused-vars
+  const {user,setUser} = useContext(AppContext)
 
   /*For Signup */
   const [userName,setUserName] = useState('');
@@ -18,6 +24,7 @@ function AuthSignup() {
   const [loginPasswordCheck,setLoginPasswordCheck] = useState('');
   /*Others */
   const [formType,setFormType] = useState('signup');
+  const navigate = useNavigate();
 
   /* Signup SubmitHandler */
   let signupSubmitHandle = (e)=>{
@@ -49,11 +56,15 @@ function AuthSignup() {
     }
     axios.post('http://localhost:3001/auth/login', userLoginDetails)
     .then(response=>{console.log(response);
+        setUser(response.data)
+        localStorage.setItem("token",response.data.token)
         setLoginEmail('');
-        setLoginPassword('');})
-    .catch(error=>{console.log(error)})
+        setLoginPassword('');
+        navigate('/');})
+        .catch(error=>{console.log(error)})
   }
 
+  
 
   /* Signup validation */
   let SignupValidation =(e)=>{
