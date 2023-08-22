@@ -6,6 +6,7 @@ import {BrowserRouter as Router ,Route,Routes } from 'react-router-dom'
 import FilterSearch from './Pages/FilterSearch/FilterSearch';
 import {AppContext}from './AppContext'
 import axios from 'axios';
+import MovieDetails from './Pages/MovieDetails/MovieDetails';
 
 
 
@@ -35,7 +36,8 @@ function App() {
         <Routes>
             <Route path='/' element={<HomePage/>} ></Route>
             <Route path='/auth/register' element={<Auth/>}></Route>
-            <Route path='/search' element={<FilterSearch/>}></Route>      
+            <Route path='/search' element={<FilterSearch/>}></Route>
+            <Route path='/movie/:id' element={<MovieDetails/>}></Route>      
       </Routes>
       </Router>
       </AppContext.Provider>

@@ -1,0 +1,56 @@
+.movie-container{
+    height: 60rem;
+    width: 100%;
+    background-size: cover;
+}
+.details-Container{
+    position: absolute;
+    background-color: hsl(0, 0%, 7% ,0.9);
+    margin-top: 15rem;
+    margin-left: 9rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 78rem;
+    border-radius: 10px;
+    padding-bottom: 50px;
+}
+.movie-poster img{
+    height: 25rem;
+    padding: 10px;
+}
+.movie-details{
+    padding-top: 50px;
+    padding-left: 10px;
+    width: 58rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.movie-details h1{
+    font-size: 60px;
+    display: inline;
+}
+.movie-details h4{
+    margin-top: 40px;
+    font-style: italic;
+}
+.movie-details p{
+    margin-top: 15px;
+    max-width: 35rem;
+}
+.movie-details h5{
+    font-style: italic;
+    float: right;
+    display: inline;
+    padding-top: 35px;
+}
+.watch-Now{
+    float: right;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 15rem;
+    height: 40px;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -4,8 +4,9 @@ import { Link, useNavigate} from 'react-router-dom'
 
 function NavBar(props) {
 
+
   const navigate = useNavigate()
-  const [user,setUser] = useState('') //Accesing User
+  const [user,setUser] = useState() //Accesing User
   const[search,setSearch] = useState('')
   const[lang,setLang] = useState('')
 
@@ -23,8 +24,8 @@ function NavBar(props) {
 
   /*Log out Handler */
   const logOutHandler =()=>{
-    localStorage.removeItem('token')
-    setUser('')
+    localStorage.removeItem('token');
+    props.user.setUser('');
   }
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function NavBar(props) {
   
   /*intializing user */
   useEffect(() => {
-    setUser(props.user)
+    setUser(props.user.user)
   }, [props])
   
 

@@ -11,7 +11,7 @@ function HomePage() {
   const {user} = useContext(AppContext)
   return (
     <div>
-    <NavBar user={user} />
+    <NavBar user={{user}} />
     <Banner/>
     <RowPosts url={originals} title="Netflix Originals"/>
     <RowPosts url={action} title="Action" isSmall />

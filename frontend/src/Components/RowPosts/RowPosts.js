@@ -3,13 +3,18 @@ import './RowPosts.css'
 import Youtube from 'react-youtube'
 import axios from '../../axios'
 import { API_KEY, IMAGE_URL } from '../../Constants/constants'
+import { useNavigate } from 'react-router-dom';
 
 
 function RowPosts(props) {
+
+  const navigate = useNavigate();
   const [movie, setMovie] = useState([])
   const [videoUrl,setVideoUrl] = useState()
   const [close,setClose] = useState(false)
   const [mouseEnterData,setMouseEnterData] = useState([])
+
+
   useEffect(() => {
     axios.get(props.url).then((response)=>{
       setMovie(response.data.results)
@@ -60,6 +65,12 @@ function RowPosts(props) {
     setMouseEnterData(data)
   }
 
+  /*Row Click Handler */
+  const postClickHandler =(id)=>{
+    navigate(`/movie/${id}`)
+  }
+
+
   let star = mouseEnterData? '⭐' : ''
 
 
@@ -72,7 +83,7 @@ function RowPosts(props) {
             <img onMouseEnter={()=>mouseEnter(obj.id)} 
             onMouseLeave={()=>setMouseEnterData()} 
             className={props.isSmall? 'smallPoster': 'poster'} 
-            src={`${IMAGE_URL+obj.backdrop_path}`} alt='poster' />
+            src={`${IMAGE_URL+obj.backdrop_path}`} alt='poster' onClick={()=>{postClickHandler(obj.id)}} />
 
             <div className='poster-details'> 
              <h3 className='poster-title'>{(mouseEnterData && mouseEnterData.original_name)|| (mouseEnterData && props.isSmall && mouseEnterData.title)}</h3>
