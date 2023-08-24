@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './RowPosts.css'
 import Youtube from 'react-youtube'
 import axios from '../../axios'
 import { API_KEY, IMAGE_URL } from '../../Constants/constants'
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../AppContext'
 
 
 function RowPosts(props) {
+
+  const {user} = useContext(AppContext)
 
   const navigate = useNavigate();
   const [movie, setMovie] = useState([])
@@ -33,7 +36,7 @@ function RowPosts(props) {
   };
 
 
-  // for fetching the movie id and generate data
+  // for fetching the movie trailer
   let clickHandle = (movieId)=>{
     axios.get(`/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`).then((response)=>{
       if(response.data.results.length !== 0)setVideoUrl(response.data.results)
@@ -50,7 +53,10 @@ function RowPosts(props) {
     let data
     data =  videoUrl.find((value)=>
       value.name === "Official Trailer" 
+      || value.name.includes("ORIGINAL TRAILER") 
+      || value.name.includes("Trailer")
     )
+    console.log(data)
     if(data)return data.key
     else
     return null
@@ -65,9 +71,16 @@ function RowPosts(props) {
     setMouseEnterData(data)
   }
 
-  /*Row Click Handler */
+  /*Row Post Click Handler */
   const postClickHandler =(id)=>{
+    if(user)
     navigate(`/movie/${id}`)
+    else{
+      localStorage.setItem('continueUrl',`/movie/${id}`)
+      let result = window.confirm("You Need To SignIn");
+      if(result === true) 
+      navigate('/auth/register');
+    }
   }
 
 
@@ -86,7 +99,7 @@ function RowPosts(props) {
             src={`${IMAGE_URL+obj.backdrop_path}`} alt='poster' onClick={()=>{postClickHandler(obj.id)}} />
 
             <div className='poster-details'> 
-             <h3 className='poster-title'>{(mouseEnterData && mouseEnterData.original_name)|| (mouseEnterData && props.isSmall && mouseEnterData.title)}</h3>
+             <h3 className='poster-title'>{(mouseEnterData && mouseEnterData.original_title)|| (mouseEnterData && props.isSmall && mouseEnterData.title)}</h3>
              <h4 className='avg-vote'>{mouseEnterData ? mouseEnterData.vote_average: ''}{star}</h4>
              <button onClick={()=>{clickHandle(obj.id);setClose(false)}} className='trailer-btn'>Trailer</button>
             </div>

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import axios from '../../axios'
 import {BASE_URL, API_KEY, IMAGE_URL} from '../../Constants/constants'
 import './FilterPosts.css'
 
 
 
-function FilterPosts() {
+function FilterPosts(props) {
 
     // const location = useLocation()
     // const searchData = new URLSearchParams(location.search).get('data')
+
+    const navigate = useNavigate();
 
     const [searchParams] = useSearchParams()
     const [data,setData] = useState([])
@@ -49,12 +51,24 @@ function FilterPosts() {
       })
     }
 
+     /*Row Post Click Handler */
+  const postClickHandler =(id)=>{
+    if(props.user.user)
+    navigate(`/movie/${id}`)
+    else{
+      localStorage.setItem('continueUrl',`/movie/${id}`)
+      let result = window.confirm("You Need To SignIn");
+      if(result === true) 
+      navigate('/auth/register')
+    }
+  }
+
   return (
     <div>
         <div className="filter-posters">
             {data.map((obj)=>
                  obj.backdrop_path &&
-                <div key={obj.id} className="filter-image-wrapper">
+                <div key={obj.id} className="filter-image-wrapper" onClick={()=>postClickHandler(obj.id)}>
                     <img className='filter-poster' src={IMAGE_URL+obj.backdrop_path} alt='Poster'/>
                     {console.log(obj)}
                        <h3 className='poster-title'>{obj.title}</h3>

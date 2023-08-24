@@ -8,12 +8,12 @@ import { AppContext } from '../../AppContext';
 function HomePage() {
 
   /*Passing User Value */
-  const {user} = useContext(AppContext)
+  const {user,setUser} = useContext(AppContext)
   return (
     <div>
-    <NavBar user={{user}} />
+    <NavBar user={{user, setUser}} />
     <Banner/>
-    <RowPosts url={originals} title="Netflix Originals"/>
+    <RowPosts url={originals} title="Top Rated"/>
     <RowPosts url={action} title="Action" isSmall />
     <RowPosts url={comedy} title="Comedy" isSmall />
     <RowPosts url={horror} title="Horror" isSmall />

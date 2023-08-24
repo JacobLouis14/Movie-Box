@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import './Movie.css'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { IMAGE_URL } from '../../Constants/constants'
 
 function Movie() {
 
   const [movie,setMovie] = useState()
+  const navigate = useNavigate()
 
+  /*AXIOS CONFIG */
+  const config = {
+    headers:{
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  }
   /*Accesing Movie Details */
   const {id} = useParams();
   useEffect(() => {
-    axios.get(`http://localhost:3001/movie/${id}`)
-    .then(response=>{setMovie(response.data);console.log(response)})
-    .catch(err=>console.log(err))
+    axios.get(`http://localhost:3001/movie/${id}`, config)
+    .then(response=>{setMovie(response.data)})
+    .catch(err=>{
+      // console.log(err);
+      if(err.response && err.response.status === (403 || 500)){
+      navigate('/auth/register')
+      }
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   /*converting M to H */

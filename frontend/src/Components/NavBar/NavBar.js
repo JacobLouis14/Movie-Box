@@ -26,6 +26,7 @@ function NavBar(props) {
   const logOutHandler =()=>{
     localStorage.removeItem('token');
     props.user.setUser('');
+    navigate('/')
   }
 
   useEffect(() => {
@@ -36,7 +37,7 @@ function NavBar(props) {
   
   /*intializing user */
   useEffect(() => {
-    setUser(props.user.user)
+      setUser(props.user.user)
   }, [props])
   
 

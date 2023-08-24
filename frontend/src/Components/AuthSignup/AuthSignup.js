@@ -60,7 +60,10 @@ function AuthSignup() {
         localStorage.setItem("token",response.data.token);
         setLoginEmail('');
         setLoginPassword('');
-        navigate('/');})
+        if(localStorage.getItem('continueUrl')){
+          navigate(localStorage.getItem('continueUrl'))
+          localStorage.removeItem('continueUrl')
+        }else navigate('/');})
         .catch(error=>{console.log(error)})
   }
 
