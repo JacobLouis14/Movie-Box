@@ -22,7 +22,7 @@ function Movie() {
     .then(response=>{setMovie(response.data)})
     .catch(err=>{
       // console.log(err);
-      if(err.response && err.response.status === (403 || 500)){
+      if((err.response) && (err.response.status === 403 || 500)){
       navigate('/auth/register')
       }
     })

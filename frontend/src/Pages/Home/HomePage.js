@@ -12,7 +12,7 @@ function HomePage() {
   return (
     <div>
     <NavBar user={{user, setUser}} />
-    <Banner/>
+    <Banner user={{user, setUser}} />
     <RowPosts url={originals} title="Top Rated"/>
     <RowPosts url={action} title="Action" isSmall />
     <RowPosts url={comedy} title="Comedy" isSmall />

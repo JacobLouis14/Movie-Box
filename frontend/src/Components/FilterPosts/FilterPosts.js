@@ -56,10 +56,11 @@ function FilterPosts(props) {
     if(props.user.user)
     navigate(`/movie/${id}`)
     else{
-      localStorage.setItem('continueUrl',`/movie/${id}`)
       let result = window.confirm("You Need To SignIn");
-      if(result === true) 
+      if(result === true){ 
+      localStorage.setItem('continueUrl',`/movie/${id}`)
       navigate('/auth/register')
+      }
     }
   }
 
