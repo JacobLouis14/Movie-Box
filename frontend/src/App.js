@@ -14,7 +14,7 @@ import MovieDetails from './Pages/MovieDetails/MovieDetails';
 
 function App() {
 
-  /* Data of LoggedUser */
+  /* Data of Logged User */
   const [user,setUser] = useState('');
   const userToken =localStorage.getItem('token')
   useEffect(() => {
