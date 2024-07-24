@@ -86,7 +86,7 @@ function RowPosts(props) {
 
   return (
     <div className="row">
-      <h2>{props.title}</h2>
+      <h2 style={{ paddingLeft: "10px" }}>{props.title}</h2>
       <div className="posters">
         {movie.map((obj) => (
           <div key={obj.id} className="image-wrapper">

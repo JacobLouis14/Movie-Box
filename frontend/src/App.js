@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "./Redux/user/userSlice";
-
 import "./App.css";
 import Auth from "./Pages/Auth/Auth";
 import HomePage from "./Pages/Home/HomePage";

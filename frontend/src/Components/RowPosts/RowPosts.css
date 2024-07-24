@@ -1,80 +1,77 @@
-.row{
-    margin-top: 20px;
-    margin-left: 50px;
-    color: white;
+.row {
+  margin-top: 20px;
+  color: white;
 }
-.posters{
-    display: flex;
-    margin-top: 20px;
-    padding: 20px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-
+.posters {
+  display: flex;
+  margin-top: 20px;
+  padding: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
-.posters::-webkit-scrollbar{
-    display: none;
+.posters::-webkit-scrollbar {
+  display: none;
 }
-.image-wrapper{
-    display: flex;
-    flex-direction: column;
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
 }
-.image-wrapper:hover .poster-details{
-    display:flex;
-    flex-direction: column;
+.image-wrapper:hover .poster-details {
+  display: flex;
+  flex-direction: column;
 }
-.poster{
-    max-height: 300px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: 0.8s;
-    margin-bottom: 30px;
+.poster {
+  max-height: 300px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-bottom: 30px;
 }
-.poster:hover{
-    transform: scale(1.1);
+.poster:hover {
+  transform: scale(1.1);
 }
-.smallPoster{
-    max-height: 180px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: 0.8s;
-
+.smallPoster {
+  max-height: 180px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.8s;
 }
-.smallPoster:hover{
-    transform: scale(1.2);
+.smallPoster:hover {
+  transform: scale(1.2);
 }
-.trailer{
-    margin-right: 2rem;
-    border-top: 1px solid red;
+.trailer {
+  margin-right: 2rem;
+  border-top: 1px solid red;
 }
-.poster-details{
-    background-color: hsl(0, 0%, 7% , 0.5 );
-    display: none;
-    margin-top: 40px;
+.poster-details {
+  background-color: hsl(0, 0%, 7%, 0.5);
+  display: none;
+  margin-top: 40px;
 }
-.poster-title{
-    color: white;
-    top: 1rem;
-    font-size:medium;
-    max-width: 250px;
+.poster-title {
+  color: white;
+  top: 1rem;
+  font-size: medium;
+  max-width: 250px;
 }
-.trailer-btn{
-    width: 50%;
-    height: 35px;
-    border: none;
-    background-color: rgb(111, 23, 23);
-    color: white;
-    font-size: larger;
-    font-weight: 400;
-    margin-top: 1rem;
-    border-radius: 10px;
+.trailer-btn {
+  width: 50%;
+  height: 35px;
+  border: none;
+  background-color: rgb(111, 23, 23);
+  color: white;
+  font-size: larger;
+  font-weight: 400;
+  margin-top: 1rem;
+  border-radius: 10px;
 }
-.trailer-btn:hover{
-    cursor: pointer;
-    background-color: rgb(111, 23, 23,0.5);
-    color: white;
+.trailer-btn:hover {
+  cursor: pointer;
+  background-color: rgb(111, 23, 23, 0.5);
+  color: white;
 }
-.avg-vote{
-    align-self: flex-end;
-    position: relative;
-    bottom: 22px;
+.avg-vote {
+  align-self: flex-end;
+  position: relative;
+  bottom: 22px;
 }

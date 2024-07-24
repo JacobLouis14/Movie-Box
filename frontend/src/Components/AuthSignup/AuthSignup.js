@@ -226,6 +226,13 @@ function AuthSignup() {
               Login
             </button>
           </form>
+          <div
+            style={{ paddingLeft: "30px", color: "white" }}
+            className="reference"
+          >
+            <h4>email:abcd@gmail.com</h4>
+            <h4>pass:123456789</h4>
+          </div>
         </div>
       </div>
     </div>
