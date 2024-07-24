@@ -9,6 +9,7 @@ import Auth from "./Pages/Auth/Auth";
 import HomePage from "./Pages/Home/HomePage";
 import FilterSearch from "./Pages/FilterSearch/FilterSearch";
 import MovieDetails from "./Pages/MovieDetails/MovieDetails";
+import { SERVER_URL } from "./Constants/constants";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function App() {
     if (userToken) {
       axios
         .post(
-          "http://localhost:3001/users/auth",
+          `${SERVER_URL}/users/auth`,
           {},
           {
             headers: {

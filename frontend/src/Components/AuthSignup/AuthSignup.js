@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/user/userSlice";
+import { SERVER_URL } from "../../Constants/constants";
 
 function AuthSignup() {
   /*Logged user Data */
@@ -39,7 +40,7 @@ function AuthSignup() {
       password: userPassword,
     };
     axios
-      .post("http://localhost:3001/auth/register", userSignupDetails)
+      .post(`${SERVER_URL}/auth/register`, userSignupDetails)
       .then((response) => {
         console.log(response);
         alert("Create Succesfully");
@@ -61,7 +62,7 @@ function AuthSignup() {
       password: loginPassword,
     };
     axios
-      .post("http://localhost:3001/auth/login", userLoginDetails)
+      .post(`${SERVER_URL}/auth/login`, userLoginDetails)
       .then((response) => {
         // setUser(response.data); // using AppContext
         dispatch(login(response.data)); //using Redux

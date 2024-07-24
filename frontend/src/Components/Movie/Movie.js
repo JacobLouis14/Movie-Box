@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Movie.css";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { IMAGE_URL } from "../../Constants/constants";
+import { IMAGE_URL, SERVER_URL } from "../../Constants/constants";
 import { Col, Row } from "react-bootstrap";
 
 function Movie() {
@@ -19,7 +19,7 @@ function Movie() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/movie/${id}`, config)
+      .get(`${SERVER_URL}/movie/${id}`, config)
       .then((response) => {
         setMovie(response.data);
       })
